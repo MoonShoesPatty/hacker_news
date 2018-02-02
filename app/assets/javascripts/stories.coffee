@@ -21,7 +21,7 @@ fetch("https://hacker-news.firebaseio.com/v0/topstories.json").then((resp) => re
 
 # Detect when user gets to page bottom
 window.onscroll = (event) -> 
-    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 1) && !isFetching)
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 10) && !isFetching)
         # get the 30 IDs of stories to load
         lowerBound = page * resPerPage + resPerPage
         upperBound = lowerBound + resPerPage
