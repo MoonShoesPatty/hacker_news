@@ -20,13 +20,14 @@
             <a href="/" class="navLoginLink">login</a>
         </div>
     </nav>
-    <ol class="storiesList">
-        <% @storyArray.each do |story| %>
-            <li class="storyWrapper">
-                <a><div class="voteArrow"></div></a>
-                <div>
+    <ul class="storiesList">
+        <% @storyArray.each.with_index do |story, index| %>
+            <li class="storyWrapper clearfix">
+                <p class="storyIndex"><%= index + 1 %>.</p>
+                <a class="voteArrowWrapper"><div class="voteArrow"></div></a>
+                <div class="storyContentWrapper">
                     <div class="titleText">
-                        <p><a href=<%= story["url"] %> class="storyLink"><%= story["title"] %></a><span>(<a></a>)</span></p>
+                        <p><a href=<%= story["url"] %> class="storyLink"><%= story["title"] %></a><span class="sourceLink">(<a></a>)</span></p>
                     </div>
                     <div class="subText">
                         <p>
@@ -38,5 +39,5 @@
                 </div>
             </li>
         <% end %>
-    </ol>
+    </ul>
 </div>
