@@ -1,19 +1,42 @@
-<nav>
-    <a href="/">Y</a>
-    <div class="navLinksWrapper">
-        <a href="/">Hacker News</a>
-        <ul class="navLinkList">
-            <li class="navLinkItem"><a class="navItemAnchor">new</a></li>
-            <li class="navLinkItem"><a class="navItemAnchor">comments</a></li>
-            <li class="navLinkItem"><a class="navItemAnchor">show</a></li>
-            <li class="navLinkItem"><a class="navItemAnchor">ask</a></li>
-            <li class="navLinkItem"><a class="navItemAnchor">jobs</a></li>
-            <li class="navLinkItem"><a class="navItemAnchor">submit</a></li>
-        </ul>
-    </div>
-    <a href="/">login</a>
-</nav>
-
-<div class="storyWrapper">
-    <h2><%= @storyItem["by"] %></h2>
+<div class="contentWrapper">
+    <nav class="navBarWrapper clearfix">
+        <div class="navLogoWrapper">
+            <div class="navLogoBorder">
+                <a href="/" class="navLogo">Y</a>
+            </div>
+        </div>
+        <div class="navLinksWrapper">
+            <a href="/" class="navTitle">Hacker News</a>
+            <ul class="navLinkList">
+                <li class="navLinkItem"><a href="/" class="navItemAnchor">new</a></li>
+                <li class="navLinkItem"><a href="/" class="navItemAnchor">comments</a></li>
+                <li class="navLinkItem"><a href="/" class="navItemAnchor">show</a></li>
+                <li class="navLinkItem"><a href="/" class="navItemAnchor">ask</a></li>
+                <li class="navLinkItem"><a href="/" class="navItemAnchor">jobs</a></li>
+                <li class="navLinkItem"><a href="/" class="navItemAnchor">submit</a></li>
+            </ul>
+        </div>
+        <div class="navBarLoginWrapper">
+            <a href="/" class="navLoginLink">login</a>
+        </div>
+    </nav>
+    <ol class="storiesList">
+        <% @storyArray.each do |story| %>
+            <li class="storyWrapper">
+                <a><div class="voteArrow"></div></a>
+                <div>
+                    <div class="titleText">
+                        <p><a href=<%= story["url"] %> class="storyLink"><%= story["title"] %></a><span>(<a></a>)</span></p>
+                    </div>
+                    <div class="subText">
+                        <p>
+                            <%= story["score"] %> points by 
+                            <a href='http://news.ycombinator.com/user?id=<%= story["by"] %>'><%= story["by"] %></a> 
+                            <a href='http://news.ycombinator.com/item?id=<%= story["id"] %>'><%= story["time"] %></a> | <a href=='http://news.ycombinator.com/user?id=<%= story["id"] %>'>hide</a> | <a href='http://news.ycombinator.com/item?id=<%= story["id"] %>'>comments</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    </ol>
 </div>

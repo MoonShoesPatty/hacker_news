@@ -1,3 +1,127 @@
-// Place all the styles related to the Stories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'partials/setup';
+
+// brak points 750 & 300
+/* ----- VARIABLES -----*/
+$fontStack: Verdana, Geneva, sans-serif;
+$backgroundColor: #F6F6EF;
+
+/* ----- GLOBAL STYLES -----*/
+.contentWrapper {
+    width: 85%;
+    margin: 0 auto;
+    background: $backgroundColor;
+}
+body {
+    font-family: $fontStack;
+    font-size: 62.5%;
+    margin: 8px;
+}
+
+/* ----- NAV BAR -----*/
+.navBarWrapper {
+    background-color: #FF6600;
+    padding: 2px;
+}
+.navBarLoginWrapper {
+    float: right;
+    padding-right: 4px;
+}
+.navLogoWrapper {
+    float: left;
+}
+.navLogoWrapper, .navBarLoginWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navLogoBorder {
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    width: 18px;
+}
+.navLogo {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 13px;
+}
+.navTitle {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.navTitle, .navItemAnchor, .navLoginLink {
+    color: black;
+    text-decoration: none;
+}
+.navLinksWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    float: left;
+}
+.navLinkList {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+.navItemAnchor {
+    padding: 4px;
+}
+.navLinkItem:first-child .navItemAnchor {
+    padding-left: 0;
+}
+.navItemAnchor, .navLoginLink {
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+.navLinkItem::after {
+    content: '|';
+}
+.navLinkItem:last-child::after {
+    content: '';
+}
+
+/* ----- MEDIA QUERIES -----*/
+@media (max-width: 750px) {
+    /* ----- GLOBAL -----*/
+    body {
+        margin: 0;
+    }
+    .contentWrapper {
+        width: 100%;
+    }
+
+    /* ----- NAV BAR -----*/
+    .navTitle {
+        font-size: 1rem;
+    }
+    .navLogoWrapper, .navBarLoginWrapper {
+        padding: 4px;
+    }
+    .navLinkList {
+        padding-bottom: 4px;
+    }
+    .navLinksWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navItemAnchor, .navLoginLink {
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 300px) {
+    /* ----- GLOBAL -----*/
+    body {
+        margin: 8px;
+    }
+    .contentWrapper {
+        width: 85%;
+    }
+}

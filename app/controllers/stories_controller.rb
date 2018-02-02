@@ -1,11 +1,15 @@
 class StoriesController < ApplicationController
   def index
+    # Pull list of top stories
     @storyIDs = HTTParty.get("https://hacker-news.firebaseio.com/v0/topstories.json")
 
-    # @storyIDs.each do |story|
-      @storyItem = HTTParty.get("https://hacker-news.firebaseio.com/v0/item/#{@storyIDs[0]}.json")
-      puts @storyItem
-
+    @storyArray = []
+    # Pull story data and store in storyArray
+    i = 0
+    while i < 3 do
+      @storyArray.push(HTTParty.get("https://hacker-news.firebaseio.com/v0/item/#{@storyIDs[i]}.json"))
+      i += 1
+    end
       # by = story.by
       # descendants = story.descendants
       # post_id = story.post_id
