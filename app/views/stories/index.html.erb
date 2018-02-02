@@ -1,39 +1,39 @@
 <div class="contentWrapper">
     <nav class="navBarWrapper clearfix">
         <div class="navLogoWrapper">
-            <div class="navLogoBorder">
-                <a href="/" class="navLogo">Y</a>
-            </div>
+            <a href="/" class="navLogoBorder">
+                <p class="navLogo">Y</p>
+            </a>
         </div>
         <div class="navLinksWrapper">
             <a href="/" class="navTitle">Hacker News</a>
             <ul class="navLinkList">
-                <li class="navLinkItem"><a href="/" class="navItemAnchor">new</a></li>
-                <li class="navLinkItem"><a href="/" class="navItemAnchor">comments</a></li>
-                <li class="navLinkItem"><a href="/" class="navItemAnchor">show</a></li>
-                <li class="navLinkItem"><a href="/" class="navItemAnchor">ask</a></li>
-                <li class="navLinkItem"><a href="/" class="navItemAnchor">jobs</a></li>
-                <li class="navLinkItem"><a href="/" class="navItemAnchor">submit</a></li>
+                <li class="navLinkItem"><a href="https://news.ycombinator.com/newest" class="navItemAnchor">new</a></li>
+                <li class="navLinkItem"><a href="https://news.ycombinator.com/newcomments" class="navItemAnchor">comments</a></li>
+                <li class="navLinkItem"><a href="https://news.ycombinator.com/show" class="navItemAnchor">show</a></li>
+                <li class="navLinkItem"><a href="https://news.ycombinator.com/ask" class="navItemAnchor">ask</a></li>
+                <li class="navLinkItem"><a href="https://news.ycombinator.com/jobs" class="navItemAnchor">jobs</a></li>
+                <li class="navLinkItem"><a href="https://news.ycombinator.com/submit" class="navItemAnchor">submit</a></li>
             </ul>
         </div>
-        <div class="navBarLoginWrapper">
-            <a href="/" class="navLoginLink">login</a>
+        <div class="navLoginWrapper">
+            <a href="https://news.ycombinator.com/login?goto=news" class="navLoginLink">login</a>
         </div>
     </nav>
     <ul class="storiesList">
         <% @storyArray.each.with_index do |story, index| %>
             <li class="storyWrapper clearfix">
                 <p class="storyIndex"><%= index + 1 %>.</p>
-                <a class="voteArrowWrapper"><div class="voteArrow"></div></a>
+                <a class="voteArrowWrapper" href='http://news.ycombinator.com/item?id=<%= story["id"] %>'><div class="voteArrow"></div></a>
                 <div class="storyContentWrapper">
                     <div class="titleText">
-                        <p><a href=<%= story["url"] %> class="storyLink"><%= story["title"] %></a><span class="sourceLink">(<a></a>)</span></p>
+                        <p><a href=<%= story["url"] %> class="storyLink"><%= story["title"] %></a><span class="sourceLink"> (<a href="/"><%= story["urlShort"] %></a>)</span></p>
                     </div>
                     <div class="subText">
                         <p>
                             <%= story["score"] %> points by 
                             <a href='http://news.ycombinator.com/user?id=<%= story["by"] %>'><%= story["by"] %></a> 
-                            <a href='http://news.ycombinator.com/item?id=<%= story["id"] %>'><%= story["time"] %></a> | <a href=='http://news.ycombinator.com/user?id=<%= story["id"] %>'>hide</a> | <a href='http://news.ycombinator.com/item?id=<%= story["id"] %>'>comments</a>
+                            <a href='http://news.ycombinator.com/item?id=<%= story["id"] %>'><%= story["timeStamp"] %> hours ago</a> | <a href='http://news.ycombinator.com/hide?id=<%= story["id"] %>&goto=news'>hide</a> | <a href='http://news.ycombinator.com/item?id=<%= story["id"] %>'><%= story["descendants"] %> comments</a>
                         </p>
                     </div>
                 </div>

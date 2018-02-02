@@ -15,7 +15,7 @@ $accentColor: #FF6600;
 }
 body {
     font-family: $fontStack;
-    font-size: 62.5%;
+    font-size: 75%;
     margin: 8px;
 }
 p {
@@ -27,14 +27,14 @@ p {
     background-color: $accentColor;
     padding: 2px;
 }
-.navBarLoginWrapper {
+.navLoginWrapper {
     float: right;
     padding-right: 4px;
 }
 .navLogoWrapper {
     float: left;
 }
-.navLogoWrapper, .navBarLoginWrapper {
+.navLogoWrapper, .navLoginWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,10 +46,10 @@ p {
     justify-content: center;
     height: 18px;
     width: 18px;
+    text-decoration: none;
 }
 .navLogo {
     color: white;
-    text-decoration: none;
     text-align: center;
     font-size: 13px;
 }
@@ -142,6 +142,9 @@ p {
     margin: 3px;
     margin-top: 0.35rem;
 }
+.storyContentWrapper {
+    width: calc(100% - 1.7rem - 20px)
+}
 .titleText {
     padding-bottom: 2px;
 }
@@ -180,6 +183,7 @@ footer {
     justify-content: center;
     padding: 0;
     margin: 15px 2px;
+    font-size: 0.6rem;
 }
 .footerLinkItem a {
     padding: 3px;
@@ -216,18 +220,32 @@ footer {
     }
 
     /* ----- NAV BAR -----*/
+    .navBarWrapper {
+        display: flex;
+        flex-wrap: nowrap;
+    }
     .navTitle {
         font-size: 1rem;
+        margin-left: 0;
     }
-    .navLogoWrapper, .navBarLoginWrapper {
+    .navLogoWrapper, .navLoginWrapper {
         padding: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .navLinkList {
-        padding-bottom: 4px;
+    .navLinksWrapper, .navLogoWrapper, .navLoginWrapper {
+        float: none;
     }
     .navLinksWrapper {
         flex-direction: column;
         align-items: flex-start;
+        margin-left: 5px;
+        flex-grow: 1;
+    }
+    .navLinkList {
+        padding-bottom: 4px;
+        padding-left: 0;
     }
     .navItemAnchor, .navLoginLink {
         font-size: 0.75rem;
