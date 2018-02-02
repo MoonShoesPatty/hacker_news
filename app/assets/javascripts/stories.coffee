@@ -75,14 +75,14 @@ createStoryLi = (storyData) ->
     return listItemContent
     
 createTimeStamp = (storyTime) ->
-    secondsSincePost = ((Time.now.to_i - storyTime))
-    hoursSincePost = secondsSincePost / 3600
-    return hoursSincePost.floor
+    currentTime = Math.round((new Date()).getTime() / 1000)
+    secondsSincePost = (currentTime - storyTime)
+    hoursSincePost = Math.floor(secondsSincePost / 3600)
+    return hoursSincePost
     
 createSourceUrl = (storyURL) ->
     if storyURL
         urlTemp = storyURL.split("/")
-        urlTemp[2].gsub! "www.", ""
         return urlTemp[2]
-    else 
+    else
         return "source"
