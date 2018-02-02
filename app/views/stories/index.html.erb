@@ -20,7 +20,7 @@
             <a href="https://news.ycombinator.com/login?goto=news" class="navLoginLink">login</a>
         </div>
     </nav>
-    <ul class="storiesList">
+    <ul class="storiesList" id="storiesList">
         <% @storyArray.each.with_index do |story, index| %>
             <li class="storyWrapper clearfix">
                 <p class="storyIndex"><%= index + 1 %>.</p>
@@ -40,7 +40,7 @@
             </li>
         <% end %>
     </ul>
-    <a href="/" class="moreStoriesLink">More</a>
+    <a href="/" class="moreStoriesLink" id="moreStoriesLink">More</a>
     <footer>
         <a href="" class="footerFeaturedLink">Applications are open for YC Summer 2018</a>
         <ul class="footerLinkList">
