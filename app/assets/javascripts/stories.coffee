@@ -62,14 +62,27 @@ createStoryLi = (storyData) ->
                 <a class='voteArrowWrapper' href='http://news.ycombinator.com/item?id=#{storyData.id}><div class='voteArrow'></div></a>
                 <div class='storyContentWrapper'>
                     <div class='titleText'>
-                        <p><a href=#{storyData.url} class='storyLink'>#{storyData.title}</a><span class='sourceLink'> (<a href='/'>source</a>)</span></p>
+                        <p><a href=#{storyData.url} class='storyLink'>#{storyData.title}</a><span class='sourceLink'> (<a href='/'>#{createSourceUrl(storyData.url)}</a>)</span></p>
                     </div>
                     <div class='subText'>
                         <p>
                             #{storyData.score} points by 
                             <a href='http://news.ycombinator.com/user?id=#{storyData.by}'>#{storyData.by}</a> 
-                            <a href='http://news.ycombinator.com/item?id=#{storyData.id}'>#{storyData.time} hours ago</a> | <a href='http://news.ycombinator.com/hide?id=#{storyData.id}&goto=news'>hide</a> | <a href='http://news.ycombinator.com/item?id=#{storyData.id}'>#{storyData.descendants} comments</a>
+                            <a href='http://news.ycombinator.com/item?id=#{storyData.id}'>#{createTimeStamp(storyData.time)} hours ago</a> | <a href='http://news.ycombinator.com/hide?id=#{storyData.id}&goto=news'>hide</a> | <a href='http://news.ycombinator.com/item?id=#{storyData.id}'>#{storyData.descendants} comments</a>
                         </p>
                     </div>
                 </div>"
     return listItemContent
+    
+createTimeStamp = (storyTime) ->
+    secondsSincePost = ((Time.now.to_i - storyTime))
+    hoursSincePost = secondsSincePost / 3600
+    return hoursSincePost.floor
+    
+createSourceUrl = (storyURL) ->
+    if storyURL
+        urlTemp = storyURL.split("/")
+        urlTemp[2].gsub! "www.", ""
+        return urlTemp[2]
+    else 
+        return "source"
